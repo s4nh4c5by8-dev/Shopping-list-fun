@@ -219,45 +219,29 @@
   <p class="subtitle">🎀 Everything on the list, dressed in pink & gold 🎀</p>
   <div class="glow-strip"></div>
 
-  <ul class="list" id="list"></ul>
+  <ul class="list" id="list">
+    <li class="item" style="animation-delay:0.00s"><span class="emoji">🥩</span><span class="label">Ground beef</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.06s"><span class="emoji">🥒</span><span class="label">Cucumbers</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.12s"><span class="emoji">🥜</span><span class="label">Cashew butter</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.18s"><span class="emoji">🍗</span><span class="label">Chicken</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.24s"><span class="emoji">🥛</span><span class="label">Oat milk</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.30s"><span class="emoji">🍞</span><span class="label">Bread</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.36s"><span class="emoji">🥯</span><span class="label">Bagels</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.42s"><span class="emoji">🍠</span><span class="label">Sweet potato fries</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.48s"><span class="emoji">🥑</span><span class="label">Avocados</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.54s"><span class="emoji">🫐</span><span class="label">Berries</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.60s"><span class="emoji">🍎</span><span class="label">Apple</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.66s"><span class="emoji">🍊</span><span class="label">Orange</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.72s"><span class="emoji">🍪</span><span class="label">Graham crackers</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.78s"><span class="emoji">🍈</span><span class="label">Monk fruit</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.84s"><span class="emoji">🧂</span><span class="label">Sugar</span><span class="bow">🎀</span></li>
+    <li class="item" style="animation-delay:0.90s"><span class="emoji">☕</span><span class="label">Decaf coffee</span><span class="bow">🎀</span></li>
+  </ul>
 
   <footer>Made with 💕 gold shimmer & girly sparkle ✨</footer>
 </div>
 
 <script>
-  const items = [
-    { name: "Ground beef", emoji: "🥩" },
-    { name: "Cucumbers", emoji: "🥒" },
-    { name: "Cashew butter", emoji: "🥜" },
-    { name: "Chicken", emoji: "🍗" },
-    { name: "Oat milk", emoji: "🥛" },
-    { name: "Bread", emoji: "🍞" },
-    { name: "Bagels", emoji: "🥯" },
-    { name: "Sweet potato fries", emoji: "🍠" },
-    { name: "Avocados", emoji: "🥑" },
-    { name: "Berries", emoji: "🫐" },
-    { name: "Apple", emoji: "🍎" },
-    { name: "Orange", emoji: "🍊" },
-    { name: "Graham crackers", emoji: "🍪" },
-    { name: "Monk fruit", emoji: "🍈" },
-    { name: "Sugar", emoji: "🧂" },
-    { name: "Decaf coffee", emoji: "☕" },
-  ];
-
-  const listEl = document.getElementById("list");
-
-  items.forEach((item, i) => {
-    const li = document.createElement("li");
-    li.className = "item";
-    li.style.animationDelay = `${i * 0.06}s`;
-    li.innerHTML = `
-      <span class="emoji">${item.emoji}</span>
-      <span class="label">${item.name}</span>
-      <span class="bow">🎀</span>
-    `;
-    listEl.appendChild(li);
-  });
-
   const sparkleLayer = document.getElementById("sparkleLayer");
   for (let i = 0; i < 40; i++) {
     const s = document.createElement("div");
