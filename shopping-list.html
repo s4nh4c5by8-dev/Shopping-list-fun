@@ -13,7 +13,6 @@
     --sunny-yellow: #ffe14d;
     --lime: #baff29;
     --sky: #29e0ff;
-    --tangerine: #ff8a1e;
     --deep-bg-1: #1a0b2e;
     --deep-bg-2: #3a0d5e;
     --deep-bg-3: #6b0f8c;
@@ -45,7 +44,6 @@
     100% { background-position: 0% 50%; }
   }
 
-  /* Sparkle canvas layer */
   #sparkleLayer {
     position: fixed;
     top: 0; left: 0;
@@ -122,34 +120,15 @@
     letter-spacing: 0.5px;
   }
 
-  .progress-wrap {
-    background: rgba(0,0,0,0.35);
-    border: 2px solid rgba(255,255,255,0.4);
+  .glow-strip {
+    height: 6px;
     border-radius: 999px;
-    padding: 6px;
-    margin: 0 auto 30px;
-    max-width: 480px;
-    box-shadow: 0 0 20px rgba(255, 46, 147, 0.4);
-  }
-
-  .progress-bar {
-    height: 20px;
-    border-radius: 999px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--lime), var(--sky), var(--hot-pink), var(--sunny-yellow));
+    margin: 0 auto 34px;
+    max-width: 240px;
+    background: linear-gradient(90deg, var(--hot-pink), var(--sunny-yellow), var(--sky), var(--lime));
     background-size: 300% auto;
-    animation: rainbowText 3s linear infinite;
-    transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
-    box-shadow: 0 0 12px rgba(255,255,255,0.6);
-  }
-
-  .progress-label {
-    text-align: center;
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    animation: rainbowText 4s linear infinite;
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
   }
 
   ul.list {
@@ -170,14 +149,12 @@
     font-size: 1.15rem;
     font-weight: 600;
     color: #3a0d5e;
-    cursor: pointer;
     position: relative;
     border: 3px solid transparent;
     box-shadow: 0 6px 0 rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.25);
     transform: translateY(0) rotate(0deg);
-    transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease, border-color 0.25s ease, background 0.25s ease;
+    transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease, border-color 0.25s ease;
     animation: popIn 0.55s cubic-bezier(.34,1.56,.64,1) backwards;
-    user-select: none;
   }
 
   @keyframes popIn {
@@ -189,10 +166,6 @@
     transform: translateY(-4px) rotate(-1deg) scale(1.02);
     box-shadow: 0 10px 0 rgba(0,0,0,0.15), 0 14px 28px rgba(0,0,0,0.3);
     border-color: var(--sunny-yellow);
-  }
-
-  li.item:active {
-    transform: translateY(2px) scale(0.98);
   }
 
   li.item .emoji {
@@ -208,75 +181,6 @@
 
   li.item .label {
     flex: 1;
-    transition: opacity 0.3s ease, text-decoration-color 0.3s ease;
-  }
-
-  li.item .check {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 3px solid var(--electric-purple);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-    transition: all 0.25s cubic-bezier(.34,1.56,.64,1);
-    background: #fff;
-  }
-
-  li.item.done {
-    background: linear-gradient(120deg, #d9ffe0, #c8ffe9);
-    border-color: var(--lime);
-  }
-
-  li.item.done .label {
-    opacity: 0.55;
-    text-decoration: line-through;
-    text-decoration-color: var(--hot-pink);
-    text-decoration-thickness: 3px;
-  }
-
-  li.item.done .check {
-    background: linear-gradient(135deg, var(--lime), var(--sky));
-    border-color: transparent;
-    transform: scale(1.15) rotate(360deg);
-    color: #fff;
-    box-shadow: 0 0 14px rgba(186, 255, 41, 0.8);
-  }
-
-  li.item.done .emoji {
-    animation: bounce 0.6s ease;
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: scale(1); }
-    30% { transform: scale(1.5) rotate(-10deg); }
-    60% { transform: scale(1.1) rotate(8deg); }
-  }
-
-  .burst {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: visible;
-  }
-
-  .burst span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 1.2rem;
-    opacity: 0;
-  }
-
-  li.item.celebrate .burst span {
-    animation: burstOut 0.7s ease-out forwards;
-  }
-
-  @keyframes burstOut {
-    0% { opacity: 1; transform: translate(-50%, -50%) scale(0.5) translate(0, 0); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4) translate(var(--tx), var(--ty)); }
   }
 
   footer {
@@ -286,43 +190,6 @@
     font-size: 0.9rem;
     opacity: 0.85;
   }
-
-  .reset-btn {
-    display: block;
-    margin: 34px auto 0;
-    padding: 12px 28px;
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #fff;
-    background: linear-gradient(135deg, var(--hot-pink), var(--electric-purple));
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 6px 0 #5c0f7a, 0 10px 22px rgba(0,0,0,0.35);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .reset-btn:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 9px 0 #5c0f7a, 0 14px 26px rgba(0,0,0,0.4);
-  }
-
-  .reset-btn:active {
-    transform: translateY(2px) scale(0.97);
-    box-shadow: 0 3px 0 #5c0f7a;
-  }
-
-  .glow-strip {
-    height: 6px;
-    border-radius: 999px;
-    margin: 0 auto 34px;
-    max-width: 240px;
-    background: linear-gradient(90deg, var(--hot-pink), var(--sunny-yellow), var(--sky), var(--lime));
-    background-size: 300% auto;
-    animation: rainbowText 4s linear infinite;
-    box-shadow: 0 0 20px rgba(255,255,255,0.7);
-  }
 </style>
 </head>
 <body>
@@ -331,17 +198,10 @@
 
 <div class="wrapper">
   <h1>✨🛒 Fabulous Shopping List 🛍️✨</h1>
-  <p class="subtitle">💖 Tap an item when it's in the cart — let the glitter fly! 💖</p>
+  <p class="subtitle">💖 Everything you need, dazzlingly organized 💖</p>
   <div class="glow-strip"></div>
 
-  <div class="progress-wrap">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  <div class="progress-label" id="progressLabel">0 / 16 grabbed 🎉</div>
-
   <ul class="list" id="list"></ul>
-
-  <button class="reset-btn" id="resetBtn">🔄 Reset List</button>
 
   <footer>Made with 💜 sparkle magic and zero chill ✨</footer>
 </div>
@@ -366,81 +226,19 @@
     { name: "Decaf coffee", emoji: "☕" },
   ];
 
-  const burstEmojis = ["✨", "🎉", "💖", "⭐", "🌟", "💫"];
-
   const listEl = document.getElementById("list");
-  const progressBar = document.getElementById("progressBar");
-  const progressLabel = document.getElementById("progressLabel");
-  const total = items.length;
-
-  function makeBurst() {
-    const wrap = document.createElement("div");
-    wrap.className = "burst";
-    for (let i = 0; i < 8; i++) {
-      const span = document.createElement("span");
-      span.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
-      const angle = (Math.PI * 2 * i) / 8 + Math.random() * 0.5;
-      const dist = 50 + Math.random() * 30;
-      span.style.setProperty("--tx", `${Math.cos(angle) * dist}px`);
-      span.style.setProperty("--ty", `${Math.sin(angle) * dist}px`);
-      wrap.appendChild(span);
-    }
-    return wrap;
-  }
-
-  function updateProgress() {
-    const done = document.querySelectorAll("li.item.done").length;
-    const pct = Math.round((done / total) * 100);
-    progressBar.style.width = pct + "%";
-    progressLabel.textContent = `${done} / ${total} grabbed 🎉`;
-    if (done === total) {
-      progressLabel.textContent = `🏆 ALL ${total} GRABBED — YOU'RE FABULOUS! 🏆`;
-    }
-  }
 
   items.forEach((item, i) => {
     const li = document.createElement("li");
     li.className = "item";
     li.style.animationDelay = `${i * 0.06}s`;
-    li.dataset.name = item.name;
-
     li.innerHTML = `
       <span class="emoji">${item.emoji}</span>
       <span class="label">${item.name}</span>
-      <span class="check"></span>
     `;
-
-    li.addEventListener("click", () => {
-      const nowDone = li.classList.toggle("done");
-      const checkSpan = li.querySelector(".check");
-      checkSpan.textContent = nowDone ? "✓" : "";
-
-      if (nowDone) {
-        const burst = makeBurst();
-        li.appendChild(burst);
-        li.classList.add("celebrate");
-        setTimeout(() => {
-          burst.remove();
-          li.classList.remove("celebrate");
-        }, 700);
-      }
-      updateProgress();
-    });
-
     listEl.appendChild(li);
   });
 
-  document.getElementById("resetBtn").addEventListener("click", () => {
-    document.querySelectorAll("li.item").forEach((li) => {
-      li.classList.remove("done");
-      li.querySelector(".check").textContent = "";
-    });
-    updateProgress();
-  });
-
-  updateProgress();
-
-  // Ambient sparkle layer
   const sparkleLayer = document.getElementById("sparkleLayer");
   for (let i = 0; i < 40; i++) {
     const s = document.createElement("div");
@@ -452,7 +250,6 @@
     sparkleLayer.appendChild(s);
   }
 
-  // Gentle falling confetti
   const confettiEmojis = ["🎉", "✨", "💖", "⭐", "🌈", "🍓"];
   for (let i = 0; i < 14; i++) {
     const c = document.createElement("div");
